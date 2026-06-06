@@ -9,7 +9,7 @@ class User(AbstractUser):
         ('staff',"Staff"),
     ]
     
-    fullname = models.CharField(max_length=255,blank=True)
+    full_name = models.CharField(max_length=255,blank=True)
     role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='staff')
     
     class Meta:
