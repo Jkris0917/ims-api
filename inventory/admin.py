@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import StockMovement, PurchaseOrder, PurchaseOrderItem
 
 # Register your models here.
-@admin.regist(StockMovement)
+@admin.register(StockMovement)
 class StockMovementAdmin(admin.ModelAdmin):
     list_display = ('product','movement_type','quantity','quantity_before','quantity_after','performed_by','created_at')
     list_filter = ('movement_type',)
@@ -25,7 +25,7 @@ class PurchaseOrderItemInLine(admin.TabularInline):
     
 @admin.register(PurchaseOrder)
 class PurchaseOrderAdmin(admin.ModelAdmin):
-    list_display = ('id','supplier','status','total_amoount','created_by','created_at')
+    list_display = ('id','supplier','status','total_amount','created_by','created_at')
     list_filter = ('status',)
     search_fields = ('supplier__name',)
     readonly_fields = ('created_by','created_at','updated_at','total_amount')

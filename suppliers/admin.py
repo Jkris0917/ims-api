@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Supplier,SupplierProduct
 
 # Register your models here.
-class SupplierProductInLine(admin.ModelAdmin):
+class SupplierProductInLine(admin.TabularInline):
     model = SupplierProduct
     extra = 1
     fields = ('product','supplier_sku','unit_cost','lead_time_days','is_preferred')
