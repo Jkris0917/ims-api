@@ -19,7 +19,7 @@ class Supplier(models.Model):
     
 class SupplierProduct(models.Model):
     supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE, related_name='supplier_products')
-    products = models.ForeignKey("products.Product", on_delete=models.CASCADE, related_name='product_suppliers')
+    product = models.ForeignKey("products.Product", on_delete=models.CASCADE, related_name='product_suppliers')
     supplier_sku = models.CharField(max_length=100, blank=True)
     unit_cost = models.DecimalField(max_digits=10, decimal_places=2)
     lead_time_days = models.PositiveIntegerField(default=7)

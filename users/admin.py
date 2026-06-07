@@ -12,7 +12,7 @@ class CustomUserAdmin(UserAdmin):
     
     fieldsets = UserAdmin.fieldsets + (
         ('Role & Info', {
-            'fields': ('full_name','role','email'),
+            'fields': ('full_name','role'),
         }),
     )
     

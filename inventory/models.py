@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib import settings
+from django.conf import settings
 
 # Create your models here.
 class StockMovement(models.Model):
@@ -38,7 +38,7 @@ class PurchaseOrder(models.Model):
         ('cancelled','Cancelled'),
     ]
     
-    suppliers = models.ForeignKey("suppliers.Supplier", on_delete=models.SET_NULL,null=True,related_name='purchase_orders')
+    supplier = models.ForeignKey("suppliers.Supplier", on_delete=models.SET_NULL,null=True,related_name='purchase_orders')
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='draft')
     notes = models.TextField(blank=True)
     ordered_at = models.DateTimeField(blank=True, null=True)
